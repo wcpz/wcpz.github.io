@@ -5,6 +5,15 @@
     <title>Minha página</title>
   </head>
   <body>
-    <h1>Bem vindo!!!</h1>
+    <DT><H3>bookmarklet</H3>
+      <DL>
+        <DT><A HREF="javascript:open(&quot;https://translate.google.com/#view=home&op=translate&sl=en&tl=pt&text=&quot;+getSelection().toString());undefined" ADD_DATE="1558485725">Traduz Seleção</A>
+        <DT><A HREF="javascript:(()=>{var busca;if(!/youtube$/i.test(document.title)){alert(&quot;Esse script s%C3%B3 funciona no YouTube&quot;);return};busca=prompt(&quot;Buscar por&quot;,document.querySelector(&quot;#container > h1&quot;).textContent);open(&quot;https://www.musixmatch.com/pt-br/search/&quot;+busca)})()" ADD_DATE="1582472429">Buscar letra do Youtube no Musixmatch</A>
+        <DT><A HREF="javascript:(()=>{var busca;if(!/youtube$/i.test(document.title)){alert(&quot;Esse script s%C3%B3 funciona no YouTube&quot;);return};busca=document.querySelector(&quot;#container > h1&quot;).textContent.split(&quot;-&quot;);if(busca.length!=2){alert(&quot;Formato desconhecido para o nome do video&quot;);return};busca[1]=busca[1].split(&quot;(&quot;)[0];;open(&quot;https://www.musixmatch.com/pt-br/letras/&quot;+busca[0].trim().replace(/ /g,&quot;-&quot;)+&quot;/&quot;+busca[1].trim().replace(/ /g,&quot;-&quot;)+&quot;/traducao/portugues&quot;)})()" ADD_DATE="1582473314">Abrir letra do Youtube no Musixmatch</A>
+        <DT><A HREF="javascript:alert((document.querySelector(&quot;p, h1, span&quot;)||{textContent:&quot;Teste&quot;}).textContent)" ADD_DATE="1582371708">Teste</A>
+        <DT><A HREF="javascript:elBase=document.querySelector(&quot;#main > div > div.Root__top-container > div.Root__now-playing-bar > footer > div > div.now-playing-bar__left > div > div.track-info.ellipsis-one-line&quot;);nome=elBase.querySelector(&quot;div.track-info__name.ellipsis-one-line > div > span > a&quot;).textContent.replace(/[ ']+/g,&quot;-&quot;);artista=elBase.querySelector(&quot;div.track-info__artists.ellipsis-one-line > span > span > span > a&quot;).textContent.replace(/[ ']+/g,&quot;-&quot;);open(&quot;https://www.musixmatch.com/pt-br/letras/&quot;+artista+&quot;/&quot;+nome+&quot;/traducao/portugues&quot;);undefined" ADD_DATE="1558485049">Abre Letra do Spotfy no Musixmatch</A>
+        <DT><A HREF="javascript:cssEl={&quot;www.musixmatch.com&quot;:&quot;div.mxm\\-translatable\\-line\\-readonly&quot;,&quot;www.letras.mus.br&quot;:&quot;.cnt\\-trad_l&quot;};el=document.querySelector(cssEl[location.host]).parentElement;document.body.innerHTML=&quot;&quot;;document.body.append(el);undefined" ADD_DATE="1558478971">Ajusta Letra</A>
+      </DL>
+    </DT>
   </body>
 </html>

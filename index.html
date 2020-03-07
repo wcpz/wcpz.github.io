@@ -6,9 +6,15 @@
     <title>Wilson Carlos Perez - Brazilo</title>
   </head>
   <body>
-		<script>document.body.innerHTML = `<h2><img src="${document.querySelector("link[rel=icon]").href}"> ${document.title}</h2>`;</script>
-		<ul>
-			<li><h3>Bookmarklets</h3></li>
+		<script>
+		document.body.innerHTML = `<h2><img src="${document.querySelector("link[rel=icon]").href}"> ${document.title}</h2>`;
+		</script>
+		<dl>
+			<dt><h3>Bookmarklets</h3></dt>
+			<dd>Scripts que rodam no navegador e que são armazenados em links.</dd>
+			<dd>Para instalar arraste o link para seus favoritos.</dd>
+			<dd>Para executar basta clicar nele em seus favoritos.</dd>
+			<dd>Links:
 				<ul><li><a>
 					</a></li><li>
 					<a href="javascript:open(&quot;https://translate.google.com/#view=home&op=translate&sl=en&tl=pt&text=&quot;+getSelection().toString());undefined">
@@ -19,9 +25,6 @@
 					</a></li><li>
 					<a href="javascript:open(&quot;https://translate.google.com/#view=home&op=translate&sl=auto&tl=pt&text=&quot;+getSelection().toString());undefined">
 						Traduz Seleção para Português (Detecta Idioma de Origem)
-					</a></li><li>
-					<a href="javascript:open(&quot;https://www.netflix.com/search?q=&quot;+getSelection().toString());undefined">
-						Busca Seleção no Netflix
 					</a></li><li>
 					<a href="javascript:(()=>{var busca;if(!/youtube$/i.test(document.title)){alert(&quot;Esse script s%C3%B3 funciona no YouTube&quot;);return};busca=prompt(&quot;Buscar por&quot;,document.querySelector(&quot;#container > h1&quot;).textContent);open(&quot;https://www.musixmatch.com/pt-br/search/&quot;+busca)})()">
 						Busca letra do Youtube no Musixmatch
@@ -35,8 +38,14 @@
 					<a href="javascript:cssEl={&quot;www.musixmatch.com&quot;:&quot;div.mxm\\-translatable\\-line\\-readonly&quot;,&quot;www.letras.mus.br&quot;:&quot;.cnt\\-trad_l&quot;};el=document.querySelector(cssEl[location.host]).parentElement;document.body.innerHTML=&quot;&quot;;document.body.append(el);undefined">
 						Ajusta Letra do Musixmatch/Letras.mus.br
 					</a></li><li>
+					<a href="javascript:(s=>{if(s)s.replace(/\r\n?/g,'\n').split('\n').forEach(t=>t&&open('https://www.netflix.com/search?q='+t));else alert('Nenhuma seleção encontrada')})((getSelection().toString()||document.activeElement.value||'').trim())">
+						Busca Seleção no Netflix v202003070925
+					</a></li><li>
 				</li></ul>
-			</li>
-		</ul>
+			</dd>
+		</dl>		
+		<p><label for="texto"><h3>Texto para selecionar:</h3></label></p>
+		<textarea id="texto" rows="10" cols="100">
+		</textarea>
   </body>
 </html>

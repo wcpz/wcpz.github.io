@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Ferramentas de diversos tipos, como educativas e de automação web.">
+		<meta name="keywords" content="bookmarklets,scripts,javascript,html,automatização web,educação">
+		<meta name="author" content="Wilson Carlos Perez">
+		<link rel="icon" href="wcp.png">
+    <title>Wilson Carlos Perez - 2021</title>
+		<style>
+			li:first-child, li:last-child, .oculto, dt.compacto+dd { display: none; }
+			li { margin-top: 15px; }
+			p {
+				margin-top: 0px;
+				margin-bottom: 0px;
+				padding-top: 0px;
+				margin-bottom: 0px;
+			}
+		</style>
+  </head>
+  <body>
+		<script>
+		document.body.innerHTML = `<h2><img src="${document.querySelector("link[rel=icon]").href}"> ${document.title}</h2>`;
+		
+		document.body.addEventListener( "click", evento => {
+			var alvo = evento.target, pai;
+			if ( alvo.tagName == "BUTTON" && ( pai = alvo.parentElement ).tagName == "H3" )
+			{
+				if ( pai.parentElement.classList.toggle("compacto") )
+				{
+					alvo.innerHTML = "Expandir";
+					document.querySelectorAll("dt").forEach( dt => dt.classList.add("compacto") );
+				}
+				else
+				{
+					alvo.innerHTML = "Recolher";
+				}
+			}
+		} );
+		
+		document.addEventListener( "DOMContentLoaded", ()=>{ document.querySelectorAll("dt h3").forEach( h3 => {
+			var bt = document.createElement("button");
+			bt.appendChild( document.createTextNode( "Expandir" ) ); // String.fromCharCode(0x2192 + idx) 0x21e8
+			h3.appendChild( bt );
+			h3.parentElement.classList.add("compacto")
+		} );} );
+		</script>
+		<dl>
+			<dt><h3>Bookmarklets</h3></dt>
+			<dd>
+				<p>Scripts que rodam no navegador e que são armazenados em links.</p>
+				<p>Úteis para automatizar ou facilitar o uso de sites.</p>
+				<p>Para instalar arraste o link para seus favoritos.</p>
+				<p>Para executar basta clicar nele em seus favoritos.</p>
+				<h4>Links/Scripts:</h4>
+				<ul><li><a>
+					</a></li><li>
+					<a href="javascript:open(&quot;https://translate.google.com/#view=home&op=translate&sl=en&tl=pt&text=&quot;+getSelection().toString());undefined">
+						Traduz Seleção de Inglês para Português
+					</a></li><li>
+					<a href="javascript:open(&quot;https://translate.google.com/#view=home&op=translate&sl=pt&tl=eo&text=&quot;+getSelection().toString());undefined">
+						Traduz Seleção de Português para Esperanto
+					</a></li><li>
+					<a href="javascript:open(&quot;https://translate.google.com/#view=home&op=translate&sl=auto&tl=pt&text=&quot;+getSelection().toString());undefined">
+						Traduz Seleção para Português (Detecta Idioma de Origem)
+					</a></li><li>
+					<a href="javascript:(()=>{var busca;if(!/youtube$/i.test(document.title)){alert(&quot;Esse script s%C3%B3 funciona no YouTube&quot;);return};busca=prompt(&quot;Buscar por&quot;,document.querySelector(&quot;#container > h1&quot;).textContent);open(&quot;https://www.musixmatch.com/pt-br/search/&quot;+busca)})()">
+						Busca letra do Youtube no Musixmatch
+					</a></li><li>
+					<a href="javascript:(()=>{var busca;if(!/youtube$/i.test(document.title)){alert(&quot;Esse script s%C3%B3 funciona no YouTube&quot;);return};busca=document.querySelector(&quot;#container > h1&quot;).textContent.split(&quot;-&quot;);if(busca.length!=2){alert(&quot;Formato desconhecido para o nome do video&quot;);return};busca[1]=busca[1].split(&quot;(&quot;)[0];;open(&quot;https://www.musixmatch.com/pt-br/letras/&quot;+busca[0].trim().replace(/ /g,&quot;-&quot;)+&quot;/&quot;+busca[1].trim().replace(/ /g,&quot;-&quot;)+&quot;/traducao/portugues&quot;)})()">
+						Abre letra do Youtube no Musixmatch
+					</a></li><li>
+					<a href="javascript:elBase=document.querySelector(&quot;#main > div > div.Root__top-container > div.Root__now-playing-bar > footer > div > div.now-playing-bar__left > div > div.track-info.ellipsis-one-line&quot;);nome=elBase.querySelector(&quot;div.track-info__name.ellipsis-one-line > div > span > a&quot;).textContent.replace(/[ ']+/g,&quot;-&quot;);artista=elBase.querySelector(&quot;div.track-info__artists.ellipsis-one-line > span > span > span > a&quot;).textContent.replace(/[ ']+/g,&quot;-&quot;);open(&quot;https://www.musixmatch.com/pt-br/letras/&quot;+artista+&quot;/&quot;+nome+&quot;/traducao/portugues&quot;);undefined">
+						Abre Letra do Spotfy no Musixmatch
+					</a></li><li>
+					<a href="javascript:cssEl={&quot;www.musixmatch.com&quot;:&quot;div.mxm\\-translatable\\-line\\-readonly&quot;,&quot;www.letras.mus.br&quot;:&quot;.cnt\\-trad_l&quot;};el=document.querySelector(cssEl[location.host]).parentElement;document.body.innerHTML=&quot;&quot;;document.body.append(el);undefined">
+						Ajusta Letra do Musixmatch/Letras.mus.br
+					</a></li><li>
+					<a href="javascript:(s=>{if(s)s.replace(/\r\n?/g,'\n').split('\n').forEach(t=>t&&open('https://www.netflix.com/search?q='+t));else alert('Nenhuma seleção encontrada')})((getSelection().toString()||document.activeElement.value||'').trim())">
+						Busca Seleção no Netflix v202003070925
+					</a></li><li>
+				</li></ul>
+				<label for="texto"><h3>Texto para selecionar:</h3></label>
+				<textarea id="texto" rows="10" cols="100"></textarea>
+			</dd>
+			<dt><h3>Jogo Associativo da Memória</h3></dt>
+			<dd>
+				<p>Este jogo é semelhante ao jogo da mémoria.</p>
+				<p>Porém, depois de virar um cartão, em vez de buscar um cartão igual,</p>
+				<p>o jogador procura um cartão que responda, complete ou equivalha ao anterior.</p>
+				<p>Por exemplo, um cartão "2x3" casaria com um cartão "6".</p>
+				<p>Ou um cartão "Capital do Brasil" casaria com um cartão "Brasília".</p>
+			</dd>
+		</dl>		
+  </body>
+</html>
